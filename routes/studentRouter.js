@@ -55,4 +55,22 @@ app.patch('/student/:id', async (req, res) => {
   }
 });
 
+app.put('/student/:id', async (req, res) => {
+  try {
+    const student = await studentModel.findOneAndUpdate(
+      { _id: req.params.id },
+      req.body,
+      { new: true }
+    );
+
+    if (!student) {
+      res.status(404).send('Documento não encontrado na coleção');
+    }
+
+    res.status(200).send(student);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+});
+
 export { app as studentRouter };
