@@ -2,12 +2,17 @@
 import express from 'express';
 import { studentRouter } from './routes/studentRouter.js';
 import mongoose from 'mongoose';
+require('dotenv').config();
 
+console.log(process.env.USER_DB);
 //conexão com o mongodb
 (async () => {
   try {
     await mongoose.connect(
-      'mongodb+srv://user-bootcamp:230992@bootcamp.csvsk.mongodb.net/grades?retryWrites=true&w=majority',
+      `mongodb+srv://${process.env.USER_DB}
+        :
+        ${process.env.PASSWORD}
+        @bootcamp.csvsk.mongodb.net/grades?retryWrites=true&w=majority`,
       {
         useNewUrlParser: true,
         useUnifiedTopology: true,
@@ -23,6 +28,6 @@ const app = express();
 app.use(express.json());
 app.use(studentRouter);
 
-app.listen(3000, () => {
+app.listen(process.env.PORT, () => {
   console.log('API iniciada');
 });
