@@ -2,7 +2,6 @@
 import express from 'express';
 import { studentRouter } from './routes/studentRouter.js';
 import mongoose from 'mongoose';
-require('dotenv').config();
 
 console.log(process.env.USER_DB);
 //conexão com o mongodb
