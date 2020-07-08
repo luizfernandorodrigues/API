@@ -3,9 +3,6 @@ import express from 'express';
 import { studentRouter } from './routes/studentRouter.js';
 import mongoose from 'mongoose';
 
-console.log(process.env.USER_DB);
-console.log(process.env.PASSWORD);
-console.log(process.env.PORT);
 //conexão com o mongodb
 (async () => {
   try {
