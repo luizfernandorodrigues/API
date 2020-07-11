@@ -2,7 +2,7 @@ import express from 'express';
 import { studentModel } from '../models/student.js';
 
 const app = express();
-
+// teste
 app.get('/student', async (req, res) => {
   try {
     const student = await studentModel.find();
