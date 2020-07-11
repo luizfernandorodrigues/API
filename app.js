@@ -18,7 +18,7 @@ import mongoose from 'mongoose';
       }
     );
   } catch (error) {
-    console.log('Ocorreu um erro' + error);
+    console.log('Ocorreu um erro ' + error);
   }
 })();
 
